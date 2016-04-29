@@ -1,0 +1,25 @@
+sudo: required
+
+language: bash
+
+services:
+    - docker
+
+before_install:
+    - sudo apt-get update -qq
+    - sudo apt-get install nc -y
+    - docker info
+    - docker version
+
+install:
+    - docker build -t kevincoakley/zookeeper .
+
+script:
+    - docker run --name my_zookeeper -d -p 127.0.0.1:2181:2181 kevincoakley/zookeeper
+    - sleep 60
+    - bash ./tests/test_zookeeper.sh
+
+after_script:
+    - docker ps -a
+    - docker logs my_zookeeper
+    - docker top my_zookeeper
