@@ -15,7 +15,7 @@ install:
     - docker build -t kevincoakley/zookeeper .
 
 script:
-    - docker run --name my_zookeeper -d -p 2181:2181 kevincoakley/zookeeper
+    - docker run --name my_zookeeper -d -p 127.0.0.1:2181:2181 kevincoakley/zookeeper
     - sleep 60
     - bash ./tests/test_zookeeper.sh
 
