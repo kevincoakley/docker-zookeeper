@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ZOOKEEPER=$(echo stat | nc 127.0.0.1 2181)
+ZOOKEEPER=$(echo stat | nc -v 127.0.0.1 2181)
 
 echo $ZOOKEEPER
 
