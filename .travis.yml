@@ -7,7 +7,7 @@ services:
 
 before_install:
     - sudo apt-get update -qq
-    - sudo apt-get install nc -y
+    - sudo apt-get install netcat -y
     - docker info
     - docker version
 
