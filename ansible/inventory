@@ -1,0 +1,2 @@
+[zookeeper]
+zookeeper-0 ansible_ssh_host=127.0.0.1 ansible_port=2201 zookeeper_id=0
